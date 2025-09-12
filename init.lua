@@ -738,22 +738,20 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'zenbones-theme/zenbones.nvim',
+    'miikanissi/modus-themes.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    dependencies = 'rktjmp/lush.nvim',
     lazy = false,
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- local catppuccin = require 'catppuccin'
+      local modus = require 'modus-themes'
       --
-      -- catppuccin.setup {
-      --   flavour = 'mocha',
-      --   -- transparent_background = true,
-      -- }
+      modus.setup {
+        variant = 'default',
+      }
 
-      vim.cmd 'colorscheme seoulbones'
+      vim.cmd 'colorscheme modus'
 
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
