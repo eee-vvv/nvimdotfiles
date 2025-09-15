@@ -185,6 +185,17 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+    word_diff = false,
+    current_line_blame = false,
+
+    on_attach = function(bufnr)
+      local gs = package.loaded.gitsigns
+
+      -- Disable the inline diff underlining
+      vim.api.nvim_set_hl(0, 'GitSignsAddInline', {})
+      vim.api.nvim_set_hl(0, 'GitSignsChangeInline', {})
+      vim.api.nvim_set_hl(0, 'GitSignsDeleteInline', {})
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -742,19 +753,23 @@ require('lazy').setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     lazy = false,
     init = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       local modus = require 'modus-themes'
-      --
+
       modus.setup {
+        transparent = false,
+        dim_inactive = false,
+        styles = {
+          comments = { italic = false },
+          keywords = { bold = true },
+          functions = {},
+          variables = {},
+        },
+        style = 'auto',
         variant = 'default',
       }
 
+      vim.opt.termguicolors = true
       vim.cmd 'colorscheme modus'
-
-      -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 
