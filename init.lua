@@ -157,6 +157,9 @@ require('lazy').setup({
       }
     end,
   },
+  {
+    'mfussenegger/nvim-dap',
+  },
 
   -----------------------------------------
   -- KICKSTART PLUGINS
@@ -761,11 +764,11 @@ require('lazy').setup({
           variables = {},
         },
         style = 'auto',
-        variant = 'default', -- light: 'tinted', dark: 'default'
+        variant = 'tinted', -- light: 'tinted', dark: 'default'
       }
 
       vim.opt.termguicolors = true
-      vim.cmd 'colorscheme modus_vivendi'
+      vim.cmd 'colorscheme modus_operandi'
     end,
   },
 
