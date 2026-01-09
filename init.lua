@@ -607,7 +607,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { cpp = true }
+        local disable_filetypes = { cpp = true, java = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
@@ -764,11 +764,11 @@ require('lazy').setup({
           variables = {},
         },
         style = 'auto',
-        variant = 'tinted', -- light: 'tinted', dark: 'default'
+        variant = 'default', -- light: 'tinted', dark: 'default'
       }
 
       vim.opt.termguicolors = true
-      vim.cmd 'colorscheme modus_operandi'
+      vim.cmd 'colorscheme modus_vivendi'
     end,
   },
 
