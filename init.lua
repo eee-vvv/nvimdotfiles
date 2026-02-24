@@ -83,6 +83,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 
+-- Filetype stuff
+vim.filetype.add { extension = { njk = 'html' } }
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -539,7 +542,7 @@ require('lazy').setup({
 
         ts_ls = {},
         eslint = {},
-
+        html = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -622,6 +625,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         c = { 'clang-format' },
+        html = { 'prettier' },
+        njk = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
